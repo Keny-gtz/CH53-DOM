@@ -17,4 +17,6 @@ git commit -m "mensaje"
 git push origin main 
  ``` 
 
->vista previa del index.html
+> vista previa del index.html
+![Index](https://raw.githubusercontent.com/Keny-gtz/CH53-DOM/refs/heads/main/images/imagen1.png)
+
