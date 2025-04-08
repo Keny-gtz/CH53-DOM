@@ -7,8 +7,8 @@ encabezado1.innerText = " DOM"
 let listas =document.getElementsByTagName("ul");
 
 
-let otroElemento =document.querySelector("ul>li");
-console.log("otroElemento:", otroElemento);
+//let otroElemento =document.querySelector("ul>li");
+//console.log("otroElemento:", otroElemento);
 
 let otrosElementos =document.querySelectorAll ("ul>li");
 //console.log (listas.length);
@@ -35,11 +35,23 @@ function modifica(){
 let btnMostrar = document.getElementById("btnMostrar");
 btnMostrar.addEventListener("click", function(event){
     event.preventDefault();//No hagas lo que haces por defecto
-    console.log("boton bntModificar presionado")
+    //  console.log("boton bntModificar presionado")
+
+let element = document.createElement("li");
+ element.innerText="Another item";//<li>Another item <li>
+ element.classList.add("list-group-item");
+
+ let element2 = element.cloneNode(true);
+
+ //listas.item(0).before(element); //Inserta el elemento antes de la lista 
+ //listas.item(0).prepend(element); // al principio de la lista
+ //listas.item(0).append(element);//al final de la lista
+ listas.item(0).append(element);
+// listas.item(0).prepend(element2);
+
+listas.item(0).after(element);
+
 });
-
-
-
 
 
 
