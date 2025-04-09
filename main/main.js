@@ -1,5 +1,5 @@
 //console.log(document.getElementById("encabezado1"));//Estamos accediendo al id de la etiqueta h1
-//VOY A DEFINIR la etiqueta de manera diferente
+//Voy a definir la etiqueta de manera diferente
 
 let encabezado1 = document.getElementById("encabezado1");
 encabezado1.innerText = "Ejercicio DOM"
@@ -7,8 +7,8 @@ encabezado1.innerText = " DOM"
 let listas =document.getElementsByTagName("ul");
 
 
-//let otroElemento =document.querySelector("ul>li");
-//console.log("otroElemento:", otroElemento);
+let otroElemento =document.querySelector("ul>li");
+console.log("otroElemento:", otroElemento);
 
 let otrosElementos =document.querySelectorAll ("ul>li");
 //console.log (listas.length);
@@ -44,12 +44,29 @@ let element = document.createElement("li");
  let element2 = element.cloneNode(true);
 
  //listas.item(0).before(element); //Inserta el elemento antes de la lista 
- //listas.item(0).prepend(element); // al principio de la lista
- //listas.item(0).append(element);//al final de la lista
- listas.item(0).append(element);
-// listas.item(0).prepend(element2);
+ //listas.item(0).prepend(element); //inserta al principio de la lista
+ //listas.item(0).append(element);/inseta /al final de la lista
+//listas.item(0).after(element);// inserta al final del elemento de la lista
 
-listas.item(0).after(element);
+//listas.item(1).insertAdjacentElement("afterbegin", element);//inserta el elemento al principio de la fila 
+//listas.item(1).insertAdjacentElement("beforeend", element2);//inserta el elemento al final de la lista
+
+listas.item(1).insertAdjacentHTML("beforebegin",
+     `  <li class="list-group-item"> 
+        Before Begin item
+      </li>`);
+     listas.item(1).insertAdjacentHTML("afterend",
+        `  <li class="list-group-item">
+        After End item 
+        </li>`);
+        listas.item(1).insertAdjacentHTML("afterbegin",
+            `  <li class="list-group-item">
+            After Begin item 
+            </li>`);
+            listas.item(1).insertAdjacentHTML("beforeend",
+                `  <li class="list-group-item">
+                Before End item 
+                </li>`);
 
 });
 
