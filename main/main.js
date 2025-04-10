@@ -5,7 +5,9 @@ let encabezado1 = document.getElementById("encabezado1");
 encabezado1.innerText = "Ejercicio DOM"
 encabezado1.innerText = " DOM"
 let listas =document.getElementsByTagName("ul");
-
+let txtRFC = document.getElementById("txtRFC");
+let txttelefono = document.getElementById("txttelefono");
+let txtcurp= document.getElementById("txrcurp");
 
 let otroElemento =document.querySelector("ul>li");
 console.log("otroElemento:", otroElemento);
@@ -44,7 +46,7 @@ let element = document.createElement("li");
  let element2 = element.cloneNode(true);
 
  //listas.item(0).before(element); //Inserta el elemento antes de la lista 
- //listas.item(0).prepend(element); //inserta al principio de la lista
+ //listas.item(0).prepend(element);//inserta al principio de la lista
  //listas.item(0).append(element);/inseta /al final de la lista
 //listas.item(0).after(element);// inserta al final del elemento de la lista
 
@@ -69,9 +71,33 @@ listas.item(1).insertAdjacentHTML("beforebegin",
                 </li>`);
 
 });
+//Se ejecuta cuando se termina de cargar todos los elementos de la pagina.
+window.addEventListener("load", function(event){
+    console.log("Se termino de cargar la pagina");
+});
+//blur -> cuando se sale del campo 
+/*txtRFC.addEventListener("blur", function(event){
+   event.preventDefault();//No hagas lo que haces por defecto
+    //txtRFC.value = txtRFC.value.toUpperCase(); //El valor que esta en value se convierte en mayusculas con toUpperCase
 
+});//txtRFC
+txtcurp.addEventListener("blur", function(event){
+    event.preventDefault();//No hagas lo que haces por defecto
+     txtcurp.value = txtcurp.value.toUpperCase(); //El valor que esta en value se convierte en mayusculas con toUpperCase
+ 
+ });//txtRFC
+ */
+function txtToUpper(event){ //automatizamos mediante esta funcion
+    event.preventDefault();
+    event.target.value = event.target.value.trim().txtToUpperCase();
+}
+txtRFC.addEventListener("blur", txtToUpper);
+txtcurp.addEventListener("blur", txtToUpper);
 
-
+txttelefono.addEventListener("blur", function(event){
+    event.preventDefault();
+    txttelefono.value = txttelefono.value.trim().slice(0,10);
+});//txttelefono
 
 
 
